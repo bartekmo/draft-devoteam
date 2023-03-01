@@ -27,7 +27,7 @@ variable "region" {
 variable "mc_cidrs_underlay" {
   type = list(string)
   description = "List of CIDRs available on MC side"
-  default = ["172.17.0.0/23", "192.168.201.0/30", "192.168.201.4/30"]
+  default = ["172.17.0.0/28", "192.168.201.0/30", "192.168.201.4/30"]
 }
 
 variable "mc_cidr_overlay" {
@@ -39,5 +39,5 @@ variable "mc_cidr_overlay" {
 variable "bnext_cidr" {
   type = string
   description = "CIDR available on bnext cloud side"
-  default = "10.208.0.0/24"
+  default = "100.90.96.0/25"
 }

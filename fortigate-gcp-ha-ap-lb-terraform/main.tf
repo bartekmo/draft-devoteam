@@ -77,8 +77,9 @@ locals {
     mgmt_ip                = google_compute_address.mgmt_priv[0].address
     mgmt_gw                = data.google_compute_subnetwork.subnets[3].gateway_address
     ilb_ip                 = google_compute_address.ilb.address
-    ic_ilb_ip              = google_compute_address.ic_ilb.address
-    frontend_eips          = [ for eip in google_compute_address.frontends : eip.address ]
+    frontend_eips          = {
+      "obs":   google_compute_address.ic_ilb_obs.address,
+      "atman": google_compute_address.ic_ilb_atman.address }
     fgt_config             = var.fgt_config
   })
 
@@ -97,8 +98,9 @@ locals {
     mgmt_ip                = google_compute_address.mgmt_priv[1].address
     mgmt_gw                = data.google_compute_subnetwork.subnets[3].gateway_address
     ilb_ip                 = google_compute_address.ilb.address
-    ic_ilb_ip              = google_compute_address.ic_ilb.address
-    frontend_eips          = { for eip in google_compute_address.frontends : eip.name=>eip.address }
+    frontend_eips          = {
+      "obs":   google_compute_address.ic_ilb_obs.address,
+      "atman": google_compute_address.ic_ilb_atman.address }
     fgt_config             = var.fgt_config
   })
 

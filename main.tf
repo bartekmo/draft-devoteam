@@ -15,10 +15,10 @@ module "fgt_ha" {
     var.fgtmgmt_sb_name
   ]
   labels        = {
-    owner : "tomas_k"
-    env   : "test"
+    owner : "bmoczulski"
+    project: "devoteam-bnext"
   }
-  image_family  = "fortigate-72-payg"
+  image_family  = "fortigate-72-byol"
   frontends     = []
 
   custom_bnext_range = var.bnext_cidr

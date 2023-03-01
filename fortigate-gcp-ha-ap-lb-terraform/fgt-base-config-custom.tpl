@@ -48,10 +48,6 @@ config system interface
         set allowaccess probe-response
       next
 %{ endfor ~}
-      edit 0
-        set ip ${ic_ilb_ip}/32
-        set allowaccess probe-response
-      next
     end
   next
   edit port2
